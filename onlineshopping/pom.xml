@@ -39,7 +39,9 @@
 			<version>${javaee.version}</version>
 			<scope>provided</scope>
 		</dependency>
+         
 
+        
 
 		<!-- JUNIT -->
 		<dependency>
