@@ -17,15 +17,25 @@
 
 	<dependencies>
 
+		<!-- link backend dependency -->
+
+		<dependency>
+			<groupId>com.m2i.formation</groupId>
+			<artifactId>shoppingbackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+
+		</dependency>
+
+
 		<!-- SPRING -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
-		
-		<!-- JSTL-->
+
+
+		<!-- JSTL -->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
@@ -39,9 +49,9 @@
 			<version>${javaee.version}</version>
 			<scope>provided</scope>
 		</dependency>
-         
 
-        
+
+
 
 		<!-- JUNIT -->
 		<dependency>

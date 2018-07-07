@@ -70,6 +70,12 @@ window.menu= '${title}' ;
 	</c:if>
 	
 	
+		<!-- load only when the user click contact -->
+	<c:if test="${userClickAllProducts==true or userClickCategoryProducts==true }">
+	<%@ include file="listProducts.jsp" %>
+	</c:if>
+	
+	
 </div>
 
 
