@@ -3,13 +3,19 @@ package com.m2i.formation.shoppingbackend.daoImp;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.m2i.formation.shoppingbackend.dao.CategoryDAO;
 import com.m2i.formation.shoppingbackend.dto.Category;
 
 @Repository(value = "categoryDao")
 public class CategoryDAOImp implements CategoryDAO {
+
+	@Autowired
+	private SessionFactory sessionFactory;
 
 	private static List<Category> categories = new ArrayList<>();
 
@@ -68,6 +74,21 @@ public class CategoryDAOImp implements CategoryDAO {
 		}
 
 		return null;
+	}
+
+	@Override
+	@Transactional
+	public boolean add(Category category) {
+		try {
+			// add the cateory to the database
+			sessionFactory.getCurrentSession().persist(category);
+
+			return true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }

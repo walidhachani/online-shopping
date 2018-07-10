@@ -18,6 +18,7 @@ $(function() {
 
 	default:
 		$('#home').addClass('active');
+	    $('#a_'+menu).addClass('active') ;
 		break;
 
 	}
