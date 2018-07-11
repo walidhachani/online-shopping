@@ -6,12 +6,16 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.m2i.formation.shoppingbackend.dao.CategoryDAO;
 import com.m2i.formation.shoppingbackend.dto.Category;
 
-@Repository(value = "categoryDao")
+@Repository(value = "categoryDAO")
+@Transactional
+@Service
+
 public class CategoryDAOImp implements CategoryDAO {
 
 	@Autowired
@@ -77,7 +81,7 @@ public class CategoryDAOImp implements CategoryDAO {
 	}
 
 	@Override
-	@Transactional
+	
 	public boolean add(Category category) {
 		try {
 			// add the cateory to the database
@@ -87,8 +91,9 @@ public class CategoryDAOImp implements CategoryDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
+		
 	}
 
 }

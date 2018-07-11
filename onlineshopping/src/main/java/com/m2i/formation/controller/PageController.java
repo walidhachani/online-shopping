@@ -6,14 +6,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.m2i.formation.shoppingbackend.dao.CategoryDAO;
 import com.m2i.formation.shoppingbackend.dto.Category;
 
 @Controller
 public class PageController {
 
 	@Autowired
-	private CategoryDAO CategoryDAO;
+	private com.m2i.formation.shoppingbackend.dao.CategoryDAO CategoryDAO;
 
 	@RequestMapping(value = { "/", "/index", "/home" })
 	public ModelAndView index() {
