@@ -82,7 +82,7 @@
 			
 		
 				
-		<!-- Jackson -->
+		<!-- Jackson for convert to json format-->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>

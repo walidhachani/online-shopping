@@ -77,6 +77,13 @@ public class ProductTestCase {
 		assertEquals("something wrent wrong while fetching list of product by cat",2,productDAO.listActiveProductByCategory(1).size());
 		
 	}
+	
+	
+	@Test
+	public void testGetLastActiveProductByCategory() {
+		assertEquals("something wrent wrong while fetching list of product by cat",3,productDAO.getLatestActiveProducts(3).size());
+		
+	}
 
 	
 }
