@@ -17,6 +17,7 @@ $(function() {
 		break;
 
 	default:
+		if(menu=="home") break ; 
 		$('#home').addClass('active');
 	    $('#a_'+menu).addClass('active') ;
 		break;
