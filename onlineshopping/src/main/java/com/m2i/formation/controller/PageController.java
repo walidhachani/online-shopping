@@ -6,13 +6,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.m2i.formation.shoppingbackend.dao.ProductDAO;
 import com.m2i.formation.shoppingbackend.dto.Category;
+import com.m2i.formation.shoppingbackend.dto.Product;
 
 @Controller
 public class PageController {
 
 	@Autowired
 	private com.m2i.formation.shoppingbackend.dao.CategoryDAO CategoryDAO;
+	
+	@Autowired
+	private ProductDAO productDAO ;
 
 	@RequestMapping(value = { "/", "/index", "/home" })
 	public ModelAndView index() {
@@ -86,6 +91,32 @@ public class PageController {
 		// paste the single category object
 		mv.addObject("category", category);
 
+		return mv;
+	}
+	
+	
+ /*
+  * Single page product view
+  */
+	@RequestMapping(value="/show/{id}/product")
+	public ModelAndView showSingleProduct(@PathVariable int id ) {
+		ModelAndView mv = new ModelAndView("page") ;
+		
+		Product product = productDAO.get(id) ; 
+		
+		// update the view counter
+		product.setViews(product.getViews()+1);
+		productDAO.update(product) ; 
+		
+		//-----------------------
+		mv.addObject("title", product.getName()) ; 
+		mv.addObject("product", product) ; 
+		
+		mv.addObject("userClickShowProduct", true) ; 
+		
+		
+		
+		
 		return mv;
 	}
 
